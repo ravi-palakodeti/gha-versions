@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deployment Information</title>
+</head>
+<body>
+  <h1>Deployment Information</h1>
+  
+  <h2>Environment 1</h2>
+  <p>Artifact Version: <span id="env1Version"></span></p>
+  
+  <h2>Environment 2</h2>
+  <p>Artifact Version: <span id="env2Version"></span></p>
+  
+  <!-- Add more environments as needed -->
+  
+  <script>
+    // Fetch and display the artifact versions using GitHub API
+    fetch('https://api.github.com/repos/ravi-palakodeti/gha-versions/actions/artifacts')
+      .then(response => response.json())
+      .then(data => {
+        const artifacts = data.artifacts;
+        const env1Artifact = artifacts.find(artifact => artifact.name === 'Environment 1');
+        const env2Artifact = artifacts.find(artifact => artifact.name === 'Environment 2');
+        
+        document.getElementById('env1Version').innerText = env1Artifact ? env1Artifact.version : 'Not deployed';
+        document.getElementById('env2Version').innerText = env2Artifact ? env2Artifact.version : 'Not deployed';
+        
+        // Add more environment versions as needed
+      })
+      .catch(error => console.error('Error fetching artifact versions:', error));
+  </script>
+</body>
+</html>
