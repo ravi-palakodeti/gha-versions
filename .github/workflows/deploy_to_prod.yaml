@@ -1,0 +1,10 @@
+name: Deploy to Dev
+
+on: workflow_dispatch
+
+jobs:
+    artifact:
+        runs-on: ubuntu-latest
+        environment: prod
+        steps:
+            - uses: actions/checkout@v2
