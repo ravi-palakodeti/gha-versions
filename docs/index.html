@@ -8,12 +8,13 @@
 <body>
   <h1>Deployment Information</h1>
 
-  <!-- <h2>Environment 1</h2>
-  <p>Artifact Version: <span id="env1Version"></span></p>
+  <h2>Environments</h2>
+  <div id="environments"></div>
+  <!-- <p>Artifact Version: <span id="env1Version"></span></p>
 
   <h2>Environment 2</h2>
-  <p>Artifact Version: <span id="env2Version"></span></p>
-   -->
+  <p>Artifact Version: <span id="env2Version"></span></p> -->
+
   <!-- Add more environments as needed -->
 
   <script>
@@ -27,7 +28,7 @@
         body += `<tr><td>${environments[i]._id}</td><td>${environments[i].name}</td></tr>`
       }
       body += "</table>"
-      document.getElementById('data').innerHTML = body
+      document.getElementById('environments').innerHTML = body
     }
 
     let url = `https://api.github.com/repos/ravi-palakodeti/gha-versions/environments`;
