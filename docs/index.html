@@ -20,10 +20,10 @@
 
     const parse = (data) => {
       console.log(data)
-      console.log(environments)
       environments = data.environments;
+      console.log(environments)
       let body = "<table>"
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < environments.length; i++) {
         body += `<tr><td>${environments[i]._id}</td><td>${environments[i].name}</td></tr>`
       }
       body += "</table>"
